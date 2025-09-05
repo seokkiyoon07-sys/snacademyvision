@@ -382,7 +382,12 @@
     color: #374151 !important;
   }
   [data-theme="light"] .footer .contact-info {
-    color: #6b7280 !important;
+    color: #374151 !important;
+    background: var(--card) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--line) !important;
+    margin: 4px 0 !important;
   }
 
   /* 모달 라이트 모드 */
@@ -1188,7 +1193,6 @@
 
     // 지점 정보 모달 열기
     function openLocationModal(locationId) {
-      console.log('openLocationModal called with:', locationId);
       const modal = document.getElementById('locationModal');
       const modalBody = document.getElementById('location-modal-body');
       
@@ -1253,10 +1257,10 @@
           <div class="comment-section">
             <h3>💬 댓글</h3>
             <div class="comment-form">
-              <textarea id="comment-text-${projectId}" placeholder="댓글을 작성해주세요..."></textarea>
-              <button onclick="submitComment('${projectId}')">댓글 작성</button>
+              <textarea id="comment-text-${locationId}" placeholder="댓글을 작성해주세요..."></textarea>
+              <button onclick="submitComment('${locationId}')">댓글 작성</button>
             </div>
-            <div class="comments-list" id="comments-list-${projectId}">
+            <div class="comments-list" id="comments-list-${locationId}">
               <!-- 댓글들이 여기에 표시됩니다 -->
             </div>
           </div>
