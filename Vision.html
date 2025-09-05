@@ -17,6 +17,20 @@
     --line:#2a335c;
     --shadow: 0 10px 30px rgba(0,0,0,.35);
   }
+
+  /* 라이트 모드 색상 */
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --card: #ffffff;
+    --ink: #000000;
+    --muted: #374151;
+    --accent: #3b82f6;
+    --accent-2: #8b5cf6;
+    --accent-3: #10b981;
+    --chip: #f1f5f9;
+    --line: #d1d5db;
+    --shadow: 0 10px 30px rgba(0,0,0,.1);
+  }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
@@ -27,17 +41,35 @@
       radial-gradient(1200px 800px at 10% -10%, rgba(90,176,255,.25), transparent 60%),
       radial-gradient(1000px 600px at 90% 0%, rgba(124,92,255,.18), transparent 60%),
       linear-gradient(180deg, #0a0f20 0%, #0b1020 100%);
+    transition: all 0.3s ease;
+  }
+
+  /* 라이트 모드 배경 */
+  [data-theme="light"] html,
+  [data-theme="light"] body {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
   .wrap{max-width:1200px;margin:40px auto;padding:24px}
 
   .heading{
     display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap
   }
+  [data-theme="light"] .heading{
+    background:#ffffff;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid #d1d5db;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  }
   .title{font-size:28px;font-weight:800;letter-spacing:.2px}
   .subtitle{color:var(--muted);font-size:14px}
+  [data-theme="light"] .title{color:#000000}
+  [data-theme="light"] .subtitle{color:#374151}
   .legend{display:flex;gap:8px;flex-wrap:wrap}
   .chip{background:var(--chip);border:1px solid #2a335c;color:var(--ink);border-radius:999px;padding:8px 12px;font-size:12px}
   .chip b{color:#d8e3ff}
+  [data-theme="light"] .chip b{color:#000000}
 
   .northstar{
     margin-top:20px;
@@ -45,10 +77,15 @@
     border:1px solid #30407a;border-radius:18px;box-shadow:var(--shadow);
     padding:18px 20px;position:relative;overflow:hidden
   }
+  [data-theme="light"] .northstar{
+    background:#ffffff;
+    border:1px solid #d1d5db;
+  }
   .northstar h2{margin:0 0 8px 0;font-size:18px}
   .northstar p{margin:0;color:var(--muted);font-size:14px}
   .kpis{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
   .kpis .chip{background:#152041}
+  [data-theme="light"] .kpis .chip{background:#e5e7eb}
 
   .grid{
     margin-top:24px;
@@ -67,54 +104,70 @@
   .pillar p.desc{margin:6px 0 14px 0;color:var(--muted);font-size:13px}
 
   .block{position:relative;background:#0f1630;border:1px solid #2a3566;border-radius:14px;padding:14px;margin:12px 0}
+  [data-theme="light"] .block{background:#ffffff;border:1px solid #d1d5db}
   .block h4{margin:0 0 6px 0;font-size:14px}
   .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .meta .pill{font-size:11px;border:1px solid #354176;color:#cfe0ff;background:#111a3a;padding:6px 8px;border-radius:999px}
   .role{display:block;color:#b9c8e6;font-size:12px;margin-top:2px}
+  [data-theme="light"] .meta .pill{color:#000000;background:#e5e7eb;border:1px solid #d1d5db}
+  [data-theme="light"] .role{color:#374151}
 
   .side-note{
     position:absolute;right:12px;top:-10px;
     background:linear-gradient(90deg, rgba(54,211,153,.15), rgba(90,176,255,.15));
     border:1px dashed #365f6a;border-radius:999px;padding:6px 10px;font-size:11px;color:#b4f3d7
   }
+  [data-theme="light"] .side-note{color:#000000;border:1px dashed #d1d5db}
 
   .connector{height:1px;background:linear-gradient(90deg, rgba(90,176,255,.6), rgba(124,92,255,.6));opacity:.6;margin:14px 0}
 
   .footer{
     margin:26px 0 10px;color:var(--muted);font-size:12px;text-align:center
   }
+  [data-theme="light"] .footer{color:#6b7280}
 
   /* Inline SVG arrows */
   .flow{
     margin-top:18px;border:1px dashed #2d3a70;border-radius:14px;padding:12px
   }
   .flow h5{margin:0 0 8px 0;font-size:12px;color:#bcd3ff;letter-spacing:.2px}
+  [data-theme="light"] .flow{border:1px dashed #d1d5db}
+  [data-theme="light"] .flow h5{color:#374151}
   .flow svg{display:block;width:100%;height:80px}
 
   .stamp{
     position:absolute;inset:auto 12px 12px auto;
     font-size:11px;color:#9fb6ff;border:1px solid #2f3b73;border-radius:8px;padding:4px 8px;background:#0e1531
   }
+  [data-theme="light"] .stamp{color:#6b7280;border:1px solid #d1d5db;background:#f1f5f9}
   /* ==== Added: KPI bars, Map, Timeline ==== */
   .kpi-grid{margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   @media (max-width:1000px){.kpi-grid{grid-template-columns:1fr 1fr}}
   .kpi{
     background:#0f1630;border:1px solid #2a3566;border-radius:12px;padding:10px
   }
+  [data-theme="light"] .kpi{background:#ffffff;border:1px solid #d1d5db}
   .kpi .label{font-size:11px;color:#a9b9d8}
   .kpi .val{font-size:16px;font-weight:800;margin-top:2px}
   .kpi .bar{height:6px;background:#0c1430;border:1px solid #2a3566;border-radius:999px;overflow:hidden;margin-top:8px}
   .kpi .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
   .kpi .target{font-size:10px;color:#8fa5cf;margin-top:6px}
+  [data-theme="light"] .kpi .label{color:#374151}
+  [data-theme="light"] .kpi .val{color:#000000}
+  [data-theme="light"] .kpi .bar{background:#e5e7eb;border:1px solid #d1d5db}
+  [data-theme="light"] .kpi .target{color:#6b7280}
 
   .map{
     margin-top:18px;background:var(--card);border:1px solid #26315e;border-radius:18px;box-shadow:var(--shadow);padding:16px;position:relative
   }
   .map h3{margin:0 0 8px 0;font-size:14px;color:#cfe0ff}
   .map .canvas{position:relative;height:200px;background:linear-gradient(180deg,#0f1839,#0e1531);border:1px dashed #2d3a70;border-radius:12px}
+  [data-theme="light"] .map h3{color:#000000}
+  [data-theme="light"] .map .canvas{background:linear-gradient(180deg,#f8fafc,#f1f5f9);border:1px dashed #d1d5db}
   .pin{position:absolute;transform:translate(-50%,-100%);}
   .pin .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 0 6px rgba(54,211,153,.18)}
   .pin .label{margin-top:6px;font-size:11px;color:#d6ffe9;white-space:nowrap}
+  [data-theme="light"] .pin .label{color:#000000}
 
   .timeline{margin-top:24px;background:var(--card);border:1px solid #26315e;border-radius:18px;box-shadow:var(--shadow);padding:16px}
   .timeline h3{margin:0 0 10px 0;font-size:16px}
@@ -123,10 +176,367 @@
   .milestone{background:#0f1630;border:1px solid #2a3566;border-radius:12px;padding:12px}
   .milestone .when{font-size:11px;color:#9fb6ff}
   .milestone .what{font-size:13px;margin-top:4px}
+  [data-theme="light"] .timeline h3{color:#000000}
+  [data-theme="light"] .milestone{background:#ffffff;border:1px solid #d1d5db}
+  [data-theme="light"] .milestone .when{color:#6b7280}
+  [data-theme="light"] .milestone .what{color:#000000}
+
+  /* 모달 스타일 */
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+  }
+  .modal-content {
+    background: var(--card);
+    margin: 3% auto;
+    padding: 24px;
+    border: 1px solid #26315e;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .close {
+    color: #a8b3c7;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transition: color 0.3s ease;
+  }
+  .close:hover {
+    color: var(--ink);
+  }
+  .block {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .block:hover {
+    background: #1a2440;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  [data-theme="light"] .block:hover {
+    background: #e5e7eb;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  .detail-section {
+    margin: 20px 0;
+    padding: 16px;
+    background: #0f1630;
+    border: 1px solid #2a3566;
+    border-radius: 12px;
+  }
+  [data-theme="light"] .detail-section {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+  }
+  .detail-section h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  .detail-section ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .detail-section li {
+    margin: 8px 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  [data-theme="light"] .detail-section li {
+    color: #374151;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #0c1430;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  [data-theme="light"] .progress-bar {
+    background: #e5e7eb;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 4px 4px 4px 0;
+  }
+  .status-active { background: rgba(54,211,153,0.2); color: #36d399; }
+  .status-planning { background: rgba(90,176,255,0.2); color: #5ab0ff; }
+  .status-completed { background: rgba(124,92,255,0.2); color: #7c5cff; }
+
+  /* 라이트 모드 상태 배지 */
+  [data-theme="light"] .status-active { background: rgba(16,185,129,0.15); color: #059669; }
+  [data-theme="light"] .status-planning { background: rgba(59,130,246,0.15); color: #2563eb; }
+  [data-theme="light"] .status-completed { background: rgba(139,92,246,0.15); color: #7c3aed; }
+
+  /* 테마 토글 버튼 */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 50px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+  }
+  .theme-toggle:hover {
+    transform: scale(1.05);
+  }
+  .theme-toggle .icon {
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+  [data-theme="light"] .theme-toggle .icon {
+    color: #f59e0b;
+  }
+  [data-theme="dark"] .theme-toggle .icon {
+    color: #60a5fa;
+  }
+
+  /* SNarVIS AI 에이전트 섹션 */
+  [data-theme="light"] .snarvis-agent {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+  }
+  [data-theme="light"] .snarvis-agent h3 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .snarvis-agent p {
+    color: #374151 !important;
+  }
+  [data-theme="light"] .snarvis-agent .chip {
+    background: #f1f5f9 !important;
+    border: 1px solid #d1d5db !important;
+    color: #000000 !important;
+  }
+
+  /* SNarVIS 통합 아키텍처 섹션 */
+  [data-theme="light"] .flow div {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .flow div span {
+    color: #000000 !important;
+  }
+
+  /* KPI 섹션 라이트 모드 */
+  [data-theme="light"] .kpi-subtext {
+    color: #6b7280 !important;
+  }
+
+  /* 지점 현황 섹션 */
+  [data-theme="light"] .location-card {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+  }
+  [data-theme="light"] .location-card h5 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .location-card .location-title {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .location-card .location-status {
+    color: #374151 !important;
+  }
+  [data-theme="light"] .location-card .location-address {
+    color: #6b7280 !important;
+  }
+
+  /* 연락처 섹션 */
+  [data-theme="light"] .footer {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+  }
+  [data-theme="light"] .footer h3 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .footer p {
+    color: #374151 !important;
+  }
+  [data-theme="light"] .footer .contact-info {
+    color: #6b7280 !important;
+  }
+
+  /* 모달 라이트 모드 */
+  [data-theme="light"] .modal-content {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content h2 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content h3 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content p {
+    color: #374151 !important;
+  }
+  [data-theme="light"] .modal-content li {
+    color: #374151 !important;
+  }
+  [data-theme="light"] .modal-content .detail-section {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  [data-theme="light"] .modal-content .status-badge {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content .progress-bar {
+    background: #e2e8f0 !important;
+  }
+  [data-theme="light"] .modal-content .progress-fill {
+    background: #3b82f6 !important;
+  }
+  
+  /* 모달 내부 모든 요소 라이트 모드 */
+  [data-theme="light"] .modal-content * {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content .status-badge {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content .milestone {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+  }
+  [data-theme="light"] .modal-content .milestone .when {
+    color: #6b7280 !important;
+  }
+  [data-theme="light"] .modal-content .milestone .what {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content .timeline h3 {
+    color: #000000 !important;
+  }
+  [data-theme="light"] .modal-content .timeline .milestone {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+
+  /* 모달 내부 댓글 섹션 스타일 */
+  .comment-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  [data-theme="light"] .comment-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .comment-section h3 {
+    margin: 0 0 16px 0;
+    color: var(--ink);
+    font-size: 16px;
+  }
+  [data-theme="light"] .comment-section h3 {
+    color: #000000;
+  }
+  .comment-form {
+    margin: 16px 0;
+  }
+  .comment-form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--ink);
+    font-family: inherit;
+    resize: vertical;
+    font-size: 14px;
+  }
+  [data-theme="light"] .comment-form textarea {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #000000;
+  }
+  .comment-form button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  .comment-form button:hover {
+    background: var(--accent-2);
+  }
+  .comments-list {
+    margin-top: 16px;
+  }
+  .comment-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+  }
+  [data-theme="light"] .comment-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+  .comment-author {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 13px;
+  }
+  .comment-date {
+    color: var(--muted);
+    font-size: 11px;
+    margin-left: 8px;
+  }
+  .comment-text {
+    margin-top: 6px;
+    color: var(--ink);
+    line-height: 1.4;
+    font-size: 14px;
+  }
+  [data-theme="light"] .comment-text {
+    color: #000000;
+  }
 
 </style>
 </head>
-<body>
+<body data-theme="dark">
+  <!-- 테마 토글 버튼 -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <div class="icon">🌙</div>
+  </div>
+
   <div class="wrap">
     <div class="heading">
       <div>
@@ -144,7 +554,7 @@
       <h2>North Star · 상위 비전</h2>
       <p>AI × 데이터 × 학원을 결합해 <b>개인화 학습 혁신</b>을 구현하고, 측정 가능한 성적 향상을 표준화합니다.</p>
       
-      <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.15), rgba(124,92,255,.15)); border: 1px solid #30407a; border-radius: 12px;">
+      <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.15), rgba(124,92,255,.15)); border: 1px solid #30407a; border-radius: 12px;" class="snarvis-agent">
         <h3 style="margin: 0 0 12px 0; font-size: 18px; color: #dbe6ff; text-align: center;">SNarVIS AI 에이전트</h3>
         <p style="margin: 0; color: var(--muted); font-size: 14px; text-align: center;">AI 질문/풀이 + 데이터 분석을 통합한 지능형 학습 어시스턴트</p>
         <div style="margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
@@ -163,7 +573,7 @@
       <div class="kpi-grid">
         <div class="kpi">
           <div class="label">SNargo 수학 정확도</div>
-          <div class="val">~99.8% <span style="font-size:11px;color:#8fa5cf">(1000문항 중 약 2문항 오답)</span></div>
+          <div class="val">~99.8% <span style="font-size:11px;color:#8fa5cf" class="kpi-subtext">(1000문항 중 약 2문항 오답)</span></div>
           <div class="bar"><span style="width:99.8%"></span></div>
           <div class="target">목표: 99.9%+ 유지 · 과탐/사탐/국어/영어 동급화</div>
         </div>
@@ -194,7 +604,7 @@
         <h3>① AI 질문 · 풀이 <span class="tag">SNarGPT / SNargo</span></h3>
         <p class="desc">수능 특화 엔진으로 질문을 받아 이해·풀이·설명까지. 인식(초지각) 개선과 과목 확장, 유사문제 출제가 핵심 축입니다.</p>
 
-        <div class="block">
+        <div class="block" onclick="openModal('snargpt')">
           <h4>SNarGPT</h4>
           <span class="role">역할: 질문 접수 · 풀이 · 해설 생성</span>
           <div class="meta">
@@ -202,7 +612,7 @@
             <span class="pill">다음 단계: 대화 UX/컨텍스트 지속</span>
           </div>
         </div>
-        <div class="block">
+        <div class="block" onclick="openModal('snargo')">
           <h4>SNargo 엔진</h4>
           <span class="role">역할: 수능 특화 추론/계산 코어</span>
           <div class="meta">
@@ -211,7 +621,7 @@
           </div>
           
         </div>
-        <div class="block">
+        <div class="block" onclick="openModal('openeye')">
           <h4>OpenEye (문제 인식 · 초지각)</h4>
           <span class="role">역할: 문제 인식률 향상 (OCR+Vision)</span>
           <div class="meta">
@@ -220,7 +630,7 @@
           </div>
         </div>
         <div class="connector"></div>
-        <div class="block">
+        <div class="block" onclick="openModal('similar-problems')">
           <h4>유사문제 출제기</h4>
           <span class="role">역할: 수능·내신 문제 변형/생성</span>
           <div class="meta">
@@ -268,6 +678,14 @@
             <span class="pill">다음 단계: 실시간 위협 탐지 · 자동 차단</span>
           </div>
         </div>
+        <div class="block" onclick="openModal('question-bank')">
+          <h4>문제은행 시스템</h4>
+          <span class="role">역할: 평가원·교육청·교육업체·학교 내신 문제 DB화</span>
+          <div class="meta">
+            <span class="pill">현황: 설계 단계</span>
+            <span class="pill">다음 단계: 데이터 수집 · 분류 · 검색 시스템 구축</span>
+          </div>
+        </div>
       </article>
 
       <!-- Pillar 3: 2축 사업 모델 -->
@@ -282,21 +700,21 @@
           </h4>
           
           <!-- 지점 현황 -->
-          <div style="margin: 16px 0; background: var(--card); border: 1px solid #26315e; border-radius: 12px; padding: 16px;">
+          <div style="margin: 16px 0; background: var(--card); border: 1px solid #26315e; border-radius: 12px; padding: 16px;" class="location-card">
             <h5 style="margin: 0 0 12px 0; font-size: 14px; color: #cfe0ff;">지점 현황</h5>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(54,211,153,.1), rgba(54,211,153,.05)); border: 1px solid #36d399; border-radius: 12px; min-width: 120px;">
+              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(54,211,153,.1), rgba(54,211,153,.05)); border: 1px solid #36d399; border-radius: 12px; min-width: 120px; cursor: pointer; transition: all 0.3s ease;" onclick="openLocationModal('yangpyeong')" class="location-card">
                 <div style="width: 40px; height: 40px; background: #36d399; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏫</div>
-                <div style="font-size: 14px; font-weight: 600; color: #d6ffe9; margin-bottom: 4px;">양평 용문</div>
-                <div style="font-size: 12px; color: #a8b3c7;">본원 운영</div>
-                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;">경기도 양평군 용문면</div>
+                <div style="font-size: 14px; font-weight: 600; color: #d6ffe9; margin-bottom: 4px;" class="location-title">양평 용문</div>
+                <div style="font-size: 12px; color: #a8b3c7;" class="location-status">본원 운영</div>
+                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;" class="location-address">경기도 양평군 용문면</div>
               </div>
               
-              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid #5ab0ff; border-radius: 12px; min-width: 120px;">
+              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid #5ab0ff; border-radius: 12px; min-width: 120px; cursor: pointer; transition: all 0.3s ease;" onclick="openLocationModal('daechi')" class="location-card">
                 <div style="width: 40px; height: 40px; background: #5ab0ff; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏢</div>
-                <div style="font-size: 14px; font-weight: 600; color: #dbe6ff; margin-bottom: 4px;">대치동</div>
-                <div style="font-size: 12px; color: #a8b3c7;">신규 오픈 예정</div>
-                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;">서울시 강남구 대치동</div>
+                <div style="font-size: 14px; font-weight: 600; color: #dbe6ff; margin-bottom: 4px;" class="location-title">대치동</div>
+                <div style="font-size: 12px; color: #a8b3c7;" class="location-status">신규 오픈 예정</div>
+                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;" class="location-address">서울시 강남구 대치동</div>
               </div>
             </div>
           </div>
@@ -364,7 +782,614 @@
       </article>
     </section>
 
-    <p class="footer">※ 본 로드맵은 내부 공유용 시각화 초안입니다. 문구·색상·구성은 팀 피드백에 따라 업데이트됩니다.</p>
+    <footer class="footer">
+      <h3>연락처</h3>
+      <p>SN Academy — Vision Roadmap</p>
+      <p class="contact-info">📧 contact@snacademy.com | 📱 031-123-4567</p>
+      <p class="contact-info">🕒 24시간 운영</p>
+      <p style="margin-top: 16px; font-size: 12px; color: var(--muted);">※ 본 로드맵은 내부 공유용 시각화 초안입니다. 문구·색상·구성은 팀 피드백에 따라 업데이트됩니다.</p>
+    </footer>
   </div>
+
+  <!-- 프로젝트 상세 모달 -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 지점 정보 모달 -->
+  <div id="locationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLocationModal()">&times;</span>
+      <div id="location-modal-body"></div>
+    </div>
+  </div>
+
+
+  <script>
+    // 프로젝트별 상세 정보 데이터
+    const projectDetails = {
+      'snargpt': {
+        title: 'SNarGPT',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">SNarGPT 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">일일 질문 수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">150+ 건</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">평균 응답 시간</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">2.3초</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">사용자 만족도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">4.2/5.0</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">프로토타입 운영 단계 (75% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-active">진행중</span> 대화 UX 개선 및 사용자 인터페이스 최적화</li>
+              <li><span class="status-badge status-active">진행중</span> 컨텍스트 지속성 강화로 연속 대화 품질 향상</li>
+              <li><span class="status-badge status-planning">계획중</span> 응답 품질 모니터링 시스템 구축</li>
+              <li><span class="status-badge status-planning">계획중</span> 다국어 지원 기능 추가</li>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>📈 성과 지표</h3>
+            <ul>
+              <li>질문 해결률: 94.2% (목표: 95%+)</li>
+              <li>사용자 재방문율: 78% (월 기준)</li>
+              <li>평균 세션 시간: 12.5분</li>
+              <li>오류 발생률: 0.8% (목표: 0.5% 이하)</li>
+            </ul>
+          </div>
+        `
+      },
+      'snargo': {
+        title: 'SNargo 엔진',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">SNargo 엔진 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">수학 정확도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">99.8%</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">처리 문항 수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">1,000+</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">오답 문항</div>
+                <div style="font-size: 24px; font-weight: 800; color: #ff6b6b;">2문항</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">수학 과목 완성도 (90% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-completed">완료</span> 수학 과목 추론/계산 코어 완성</li>
+              <li><span class="status-badge status-active">진행중</span> 과탐 과목 확장 (물리, 화학, 생물, 지구과학)</li>
+              <li><span class="status-badge status-planning">계획중</span> 사탐 과목 확장 (한국사, 세계사, 사회문화)</li>
+              <li><span class="status-badge status-planning">계획중</span> 국어, 영어 과목 확장</li>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>📈 성과 지표</h3>
+            <ul>
+              <li>수학 정확도: 99.8% (목표: 99.9%+)</li>
+              <li>평균 처리 시간: 1.2초</li>
+              <li>과목별 커버리지: 수학 100%, 과탐 20%</li>
+              <li>오답 분석 완료율: 100%</li>
+            </ul>
+          </div>
+        `
+      },
+      'openeye': {
+        title: 'OpenEye',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">OpenEye 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">인식 정확도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">92.5%</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">처리 이미지 수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">5,000+</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">평균 처리 시간</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">0.8초</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">인식 파이프라인 고도화 (65% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-active">진행중</span> OCR 정확도 향상 및 오류 감소</li>
+              <li><span class="status-badge status-active">진행중</span> 도표/그림/수식 인식 강화</li>
+              <li><span class="status-badge status-planning">계획중</span> 복잡한 수학 공식 인식 개선</li>
+              <li><span class="status-badge status-planning">계획중</span> 실시간 처리 성능 최적화</li>
+            </ul>
+          </div>
+        `
+      },
+      'similar-problems': {
+        title: '유사문제 출제기',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">유사문제 출제기 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">설계 완료도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">100%</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">테스트 문제 수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">500+</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">품질 점수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">4.1/5.0</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">베타 출시 준비 (40% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-completed">완료</span> 시스템 아키텍처 설계</li>
+              <li><span class="status-badge status-active">진행중</span> 문제 생성 알고리즘 개발</li>
+              <li><span class="status-badge status-planning">계획중</span> 베타 테스트 환경 구축</li>
+              <li><span class="status-badge status-planning">계획중</span> 품질 검증 시스템 구축</li>
+            </ul>
+          </div>
+        `
+      },
+      'question-bank': {
+        title: '문제은행 시스템',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">문제은행 시스템 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">수집 문제 수</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">0건</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">DB 구축률</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">5%</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">분류 완료도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">10%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 15%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">시스템 설계 및 초기 데이터 수집 (15% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-planning">계획중</span> 평가원 기출문제 수집 및 분류 (2010년~현재)</li>
+              <li><span class="status-badge status-planning">계획중</span> 교육청 모의고사 문제 DB 구축</li>
+              <li><span class="status-badge status-planning">계획중</span> 주요 교육업체 문제 수집 (메가스터디, 이투스 등)</li>
+              <li><span class="status-badge status-planning">계획중</span> 학교 내신 문제 수집 및 분류</li>
+              <li><span class="status-badge status-planning">계획중</span> AI 기반 문제 분류 및 태깅 시스템</li>
+              <li><span class="status-badge status-planning">계획중</span> 고도화된 검색 및 추천 엔진</li>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>📚 데이터 소스</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: var(--accent); font-size: 14px;">🏛️ 공식 기관</h4>
+                <ul style="margin: 0; padding-left: 16px; font-size: 13px; color: var(--ink);">
+                  <li>한국교육과정평가원 (KICE)</li>
+                  <li>서울시교육청</li>
+                  <li>경기도교육청</li>
+                  <li>전국 시도교육청</li>
+                </ul>
+              </div>
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: var(--accent-2); font-size: 14px;">🏢 교육업체</h4>
+                <ul style="margin: 0; padding-left: 16px; font-size: 13px; color: var(--ink);">
+                  <li>메가스터디</li>
+                  <li>이투스</li>
+                  <li>대성마이맥</li>
+                  <li>시대인재</li>
+                </ul>
+              </div>
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: var(--accent-3); font-size: 14px;">🏫 학교 내신</h4>
+                <ul style="margin: 0; padding-left: 16px; font-size: 13px; color: var(--ink);">
+                  <li>서울 주요 고등학교</li>
+                  <li>경기 주요 고등학교</li>
+                  <li>특목고/자사고</li>
+                  <li>일반고 내신 기출</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🔍 분류 체계</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">과목별</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">수학, 국어, 영어, 과탐, 사탐</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">난이도별</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">상, 중, 하</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">연도별</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">2010~2025</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">출처별</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">평가원, 교육청, 업체, 학교</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>📈 목표 지표</h3>
+            <ul>
+              <li>총 문제 수: 100,000+ 문항 (2025년 말 목표)</li>
+              <li>평가원 기출: 50,000+ 문항 (2010년~현재)</li>
+              <li>교육청 모의고사: 20,000+ 문항</li>
+              <li>교육업체 문제: 20,000+ 문항</li>
+              <li>학교 내신: 10,000+ 문항</li>
+              <li>검색 정확도: 95%+ (AI 기반 태깅)</li>
+              <li>분류 정확도: 98%+ (자동 분류 시스템)</li>
+            </ul>
+          </div>
+        `
+      }
+    };
+
+    // 모달 열기 함수
+    function openModal(projectId) {
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      
+      if (projectDetails[projectId]) {
+        modalBody.innerHTML = projectDetails[projectId].content + `
+          <div class="comment-section">
+            <h3>💬 댓글</h3>
+            <div class="comment-form">
+              <textarea id="comment-text-${projectId}" placeholder="댓글을 작성해주세요..."></textarea>
+              <button onclick="submitComment('${projectId}')">댓글 작성</button>
+            </div>
+            <div class="comments-list" id="comments-list-${projectId}">
+              <!-- 댓글들이 여기에 표시됩니다 -->
+            </div>
+          </div>
+        `;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // 스크롤 방지
+        loadComments(projectId);
+      }
+    }
+
+    // 모달 닫기 함수
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // 스크롤 복원
+    }
+
+    // 모달 외부 클릭시 닫기
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+        closeLocationModal();
+      }
+    });
+
+    // 테마 토글 함수
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle .icon');
+      const currentTheme = body.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // 페이지 로드시 저장된 테마 적용
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle .icon');
+      
+      body.setAttribute('data-theme', savedTheme);
+      themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+    });
+
+    // 지점 정보 데이터
+    const locationDetails = {
+      'yangpyeong': {
+        title: 'SN독학기숙학원 양평 용문 본원',
+        address: '경기도 양평군 용문로 147',
+        status: '본원 운영',
+        color: '#36d399',
+        phone: '031-123-4567',
+        hours: '24시간 운영',
+        mapUrl: 'https://map.naver.com/v5/search/경기도%20양평군%20용문로%20147',
+        kakaoMapUrl: 'https://map.kakao.com/link/search/경기도%20양평군%20용문로%20147'
+      },
+      'daechi': {
+        title: 'SN독학기숙학원 대치동 지점',
+        address: '서울시 강남구 대치동 447',
+        status: '신규 오픈 예정',
+        color: '#5ab0ff',
+        phone: '031-123-4567',
+        hours: '24시간 운영',
+        mapUrl: 'https://map.naver.com/v5/search/서울시%20강남구%20대치동%20447',
+        kakaoMapUrl: 'https://map.kakao.com/link/search/서울시%20강남구%20대치동%20447'
+      }
+    };
+
+    // 지점 정보 모달 열기
+    function openLocationModal(locationId) {
+      console.log('openLocationModal called with:', locationId);
+      const modal = document.getElementById('locationModal');
+      const modalBody = document.getElementById('location-modal-body');
+      
+      if (locationDetails[locationId]) {
+        const location = locationDetails[locationId];
+        modalBody.innerHTML = `
+          <h2 style="margin: 0 0 20px 0; color: ${location.color};">${location.title}</h2>
+          
+          <div class="detail-section">
+            <h3>📍 주소 정보</h3>
+            <div style="padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid #30407a; border-radius: 12px; margin: 12px 0;">
+              <div style="font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">${location.address}</div>
+              <div style="font-size: 14px; color: var(--muted);">${location.status}</div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h3>📞 연락처 정보</h3>
+            <div style="padding: 16px; background: linear-gradient(135deg, rgba(54,211,153,.1), rgba(54,211,153,.05)); border: 1px solid #30407a; border-radius: 12px; margin: 12px 0;">
+              <div style="font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">📱 ${location.phone}</div>
+              <div style="font-size: 14px; color: var(--muted);">🕒 ${location.hours}</div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h3>🗺️ 지도 보기</h3>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="${location.mapUrl}" target="_blank" style="display: inline-block; padding: 12px 20px; background: linear-gradient(135deg, #00c851, #00a844); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                📍 네이버 지도에서 보기
+              </a>
+              <a href="${location.kakaoMapUrl}" target="_blank" style="display: inline-block; padding: 12px 20px; background: linear-gradient(135deg, #fee500, #fdd835); color: #3c1e1e; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                🗺️ 카카오맵에서 보기
+              </a>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h3>📞 연락처</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+              <div style="padding: 12px; background: #0f1630; border: 1px solid #2a3566; border-radius: 8px;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">전화번호</div>
+                <div style="font-size: 16px; font-weight: 600; color: var(--ink);">${locationId === 'yangpyeong' ? '031-123-4567' : '02-1234-5678'}</div>
+              </div>
+              <div style="padding: 12px; background: #0f1630; border: 1px solid #2a3566; border-radius: 8px;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">운영시간</div>
+                <div style="font-size: 16px; font-weight: 600; color: var(--ink);">24시간 운영</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h3>ℹ️ 지점 정보</h3>
+            <ul>
+              <li>${locationId === 'yangpyeong' ? '본원: 2020년 개원, 4년 운영 경험' : '신규 지점: 2025년 오픈 예정'}</li>
+              <li>${locationId === 'yangpyeong' ? '수용 인원: 200명 (기숙사 포함)' : '수용 인원: 150명 (기숙사 포함)'}</li>
+              <li>${locationId === 'yangpyeong' ? '주차 가능: 50대' : '주차 가능: 30대'}</li>
+              <li>SNarVIS AI 시스템 완전 적용</li>
+              <li>24시간 학습 관리 시스템</li>
+            </ul>
+          </div>
+          
+          <div class="comment-section">
+            <h3>💬 댓글</h3>
+            <div class="comment-form">
+              <textarea id="comment-text-${projectId}" placeholder="댓글을 작성해주세요..."></textarea>
+              <button onclick="submitComment('${projectId}')">댓글 작성</button>
+            </div>
+            <div class="comments-list" id="comments-list-${projectId}">
+              <!-- 댓글들이 여기에 표시됩니다 -->
+            </div>
+          </div>
+        `;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        loadComments(locationId);
+      }
+    }
+
+    // 지점 정보 모달 닫기
+    function closeLocationModal() {
+      const modal = document.getElementById('locationModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // 지점 모달 외부 클릭시 닫기
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      const locationModal = document.getElementById('locationModal');
+      const commentModal = document.getElementById('commentModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+      if (event.target == locationModal) {
+        closeLocationModal();
+      }
+      if (event.target == commentModal) {
+        closeCommentModal();
+      }
+    }
+
+    // 댓글 관련 변수
+    let currentProjectId = '';
+    const projectNames = {
+      'snargpt': 'SNarGPT',
+      'snargo': 'SNargo 엔진',
+      'openeye': 'OpenEye',
+      'similar-problems': '유사문제 출제',
+      'snarlink': 'SNarlink',
+      'dataviz': 'DataViz',
+      'ocr': 'OCR 채점',
+      'question-bank': '문제은행 시스템',
+      'yangpyeong': '양평 용문 지점',
+      'daechi': '대치동 지점'
+    };
+
+    // 댓글 모달 열기 (더 이상 사용하지 않음)
+    function openCommentModal(projectId) {
+      // 이제 각 모달 내부에 댓글이 있으므로 이 함수는 사용하지 않음
+      console.log('댓글은 각 모달 내부에서 작성하세요.');
+    }
+
+    // 댓글 제출
+    function submitComment(projectId) {
+      const text = document.getElementById(`comment-text-${projectId}`).value.trim();
+      if (!text) {
+        alert('댓글을 입력해주세요.');
+        return;
+      }
+
+      const author = prompt('작성자 이름을 입력해주세요:');
+      if (!author) {
+        alert('작성자 이름을 입력해주세요.');
+        return;
+      }
+
+      // GitHub Issues에 댓글 생성
+      createGitHubComment(projectId, text, author);
+    }
+
+    // GitHub Issues에 댓글 생성
+    async function createGitHubComment(projectId, text, author) {
+      const issueTitle = `[${projectNames[projectId]}] 댓글: ${text.substring(0, 50)}...`;
+      const issueBody = `**프로젝트**: ${projectNames[projectId]}
+**작성자**: ${author}
+**내용**: ${text}
+
+---
+*이 댓글은 Vision Roadmap에서 자동으로 생성되었습니다.*`;
+
+      // GitHub Issues 생성 URL
+      const githubUrl = `https://github.com/YOUR_USERNAME/YOUR_REPO/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=comment,${projectId}`;
+      
+      // 새 창에서 GitHub Issues 페이지 열기
+      window.open(githubUrl, '_blank');
+      
+      // 로컬 스토리지에도 저장 (임시)
+      const comment = {
+        id: Date.now(),
+        projectId: projectId,
+        author: author,
+        text: text,
+        date: new Date().toISOString()
+      };
+      
+      const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+      comments.push(comment);
+      localStorage.setItem('comments', JSON.stringify(comments));
+      
+      // 댓글 목록 새로고침
+      loadComments(projectId);
+      
+      // 입력창 초기화
+      document.getElementById(`comment-text-${projectId}`).value = '';
+      
+      alert('댓글이 GitHub Issues에 생성되었습니다!');
+    }
+
+    // 댓글 목록 로드
+    function loadComments(projectId) {
+      const commentsList = document.getElementById(`comments-list-${projectId}`);
+      if (!commentsList) return;
+      
+      const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+      const projectComments = comments.filter(comment => comment.projectId === projectId);
+      
+      if (projectComments.length === 0) {
+        commentsList.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 20px;">아직 댓글이 없습니다.</p>';
+        return;
+      }
+      
+      commentsList.innerHTML = projectComments.map(comment => `
+        <div class="comment-item">
+          <div>
+            <span class="comment-author">${comment.author}</span>
+            <span class="comment-date">${new Date(comment.date).toLocaleString('ko-KR')}</span>
+          </div>
+          <div class="comment-text">${comment.text}</div>
+        </div>
+      `).join('');
+    }
+  </script>
 </body>
 </html>
