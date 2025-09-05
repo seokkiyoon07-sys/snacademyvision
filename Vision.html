@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SN Academy — Vision Roadmap</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:#121932;
+    --ink:#eaf1ff;
+    --muted:#a8b3c7;
+    --accent:#5ab0ff;
+    --accent-2:#7c5cff;
+    --accent-3:#36d399;
+    --chip:#1b2446;
+    --line:#2a335c;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 800px at 10% -10%, rgba(90,176,255,.25), transparent 60%),
+      radial-gradient(1000px 600px at 90% 0%, rgba(124,92,255,.18), transparent 60%),
+      linear-gradient(180deg, #0a0f20 0%, #0b1020 100%);
+  }
+  .wrap{max-width:1200px;margin:40px auto;padding:24px}
+
+  .heading{
+    display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap
+  }
+  .title{font-size:28px;font-weight:800;letter-spacing:.2px}
+  .subtitle{color:var(--muted);font-size:14px}
+  .legend{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--chip);border:1px solid #2a335c;color:var(--ink);border-radius:999px;padding:8px 12px;font-size:12px}
+  .chip b{color:#d8e3ff}
+
+  .northstar{
+    margin-top:20px;
+    background:linear-gradient(180deg, rgba(90,176,255,.16), rgba(124,92,255,.14));
+    border:1px solid #30407a;border-radius:18px;box-shadow:var(--shadow);
+    padding:18px 20px;position:relative;overflow:hidden
+  }
+  .northstar h2{margin:0 0 8px 0;font-size:18px}
+  .northstar p{margin:0;color:var(--muted);font-size:14px}
+  .kpis{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+  .kpis .chip{background:#152041}
+
+  .grid{
+    margin-top:24px;
+    display:grid;gap:18px;
+    grid-template-columns:repeat(3, 1fr);
+  }
+  @media (max-width:1000px){.grid{grid-template-columns:1fr}}
+
+  .pillar{
+    background:var(--card);
+    border:1px solid #26315e;border-radius:20px;box-shadow:var(--shadow);
+    padding:18px;position:relative
+  }
+  .pillar h3{margin:0 0 4px 0;font-size:18px;display:flex;align-items:center;gap:10px}
+  .pillar .tag{font-size:11px;background:linear-gradient(90deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:.3px}
+  .pillar p.desc{margin:6px 0 14px 0;color:var(--muted);font-size:13px}
+
+  .block{position:relative;background:#0f1630;border:1px solid #2a3566;border-radius:14px;padding:14px;margin:12px 0}
+  .block h4{margin:0 0 6px 0;font-size:14px}
+  .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .meta .pill{font-size:11px;border:1px solid #354176;color:#cfe0ff;background:#111a3a;padding:6px 8px;border-radius:999px}
+  .role{display:block;color:#b9c8e6;font-size:12px;margin-top:2px}
+
+  .side-note{
+    position:absolute;right:12px;top:-10px;
+    background:linear-gradient(90deg, rgba(54,211,153,.15), rgba(90,176,255,.15));
+    border:1px dashed #365f6a;border-radius:999px;padding:6px 10px;font-size:11px;color:#b4f3d7
+  }
+
+  .connector{height:1px;background:linear-gradient(90deg, rgba(90,176,255,.6), rgba(124,92,255,.6));opacity:.6;margin:14px 0}
+
+  .footer{
+    margin:26px 0 10px;color:var(--muted);font-size:12px;text-align:center
+  }
+
+  /* Inline SVG arrows */
+  .flow{
+    margin-top:18px;border:1px dashed #2d3a70;border-radius:14px;padding:12px
+  }
+  .flow h5{margin:0 0 8px 0;font-size:12px;color:#bcd3ff;letter-spacing:.2px}
+  .flow svg{display:block;width:100%;height:80px}
+
+  .stamp{
+    position:absolute;inset:auto 12px 12px auto;
+    font-size:11px;color:#9fb6ff;border:1px solid #2f3b73;border-radius:8px;padding:4px 8px;background:#0e1531
+  }
+  /* ==== Added: KPI bars, Map, Timeline ==== */
+  .kpi-grid{margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media (max-width:1000px){.kpi-grid{grid-template-columns:1fr 1fr}}
+  .kpi{
+    background:#0f1630;border:1px solid #2a3566;border-radius:12px;padding:10px
+  }
+  .kpi .label{font-size:11px;color:#a9b9d8}
+  .kpi .val{font-size:16px;font-weight:800;margin-top:2px}
+  .kpi .bar{height:6px;background:#0c1430;border:1px solid #2a3566;border-radius:999px;overflow:hidden;margin-top:8px}
+  .kpi .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .kpi .target{font-size:10px;color:#8fa5cf;margin-top:6px}
+
+  .map{
+    margin-top:18px;background:var(--card);border:1px solid #26315e;border-radius:18px;box-shadow:var(--shadow);padding:16px;position:relative
+  }
+  .map h3{margin:0 0 8px 0;font-size:14px;color:#cfe0ff}
+  .map .canvas{position:relative;height:200px;background:linear-gradient(180deg,#0f1839,#0e1531);border:1px dashed #2d3a70;border-radius:12px}
+  .pin{position:absolute;transform:translate(-50%,-100%);}
+  .pin .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 0 6px rgba(54,211,153,.18)}
+  .pin .label{margin-top:6px;font-size:11px;color:#d6ffe9;white-space:nowrap}
+
+  .timeline{margin-top:24px;background:var(--card);border:1px solid #26315e;border-radius:18px;box-shadow:var(--shadow);padding:16px}
+  .timeline h3{margin:0 0 10px 0;font-size:16px}
+  .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media (max-width:1000px){.milestones{grid-template-columns:1fr 1fr}}
+  .milestone{background:#0f1630;border:1px solid #2a3566;border-radius:12px;padding:12px}
+  .milestone .when{font-size:11px;color:#9fb6ff}
+  .milestone .what{font-size:13px;margin-top:4px}
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="heading">
+      <div>
+        <div class="title">SN Academy — Vision Roadmap</div>
+        <div class="subtitle">에듀테크 전환을 이끄는 <b>3가지 축</b>과 상위 비전을 한눈에</div>
+      </div>
+      <div class="legend">
+        <div class="chip"><b>역할</b>: 이 프로젝트가 조직에서 맡은 기능</div>
+        <div class="chip"><b>현황</b>: 현재 단계 / 성과</div>
+        <div class="chip"><b>다음 단계</b>: 향후 액션 · 로드맵</div>
+      </div>
+    </div>
+
+    <section class="northstar">
+      <h2>North Star · 상위 비전</h2>
+      <p>AI × 데이터 × 학원을 결합해 <b>개인화 학습 혁신</b>을 구현하고, 측정 가능한 성적 향상을 표준화합니다.</p>
+      
+      <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.15), rgba(124,92,255,.15)); border: 1px solid #30407a; border-radius: 12px;">
+        <h3 style="margin: 0 0 12px 0; font-size: 18px; color: #dbe6ff; text-align: center;">SNarVIS AI 에이전트</h3>
+        <p style="margin: 0; color: var(--muted); font-size: 14px; text-align: center;">AI 질문/풀이 + 데이터 분석을 통합한 지능형 학습 어시스턴트</p>
+        <div style="margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+          <span class="chip" style="background: #152041;">실시간 학습 진단</span>
+          <span class="chip" style="background: #152041;">개인화 추천 엔진</span>
+          <span class="chip" style="background: #152041;">학습 패턴 분석</span>
+        </div>
+      </div>
+      
+      <div class="kpis">
+        <div class="chip">정확도 향상 (문항 기준)</div>
+        <div class="chip">학습량/집중도 지표</div>
+        <div class="chip">개인별 최적화 플랜</div>
+        <div class="chip">학부모/학생 신뢰 지표</div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">SNargo 수학 정확도</div>
+          <div class="val">~99.8% <span style="font-size:11px;color:#8fa5cf">(1000문항 중 약 2문항 오답)</span></div>
+          <div class="bar"><span style="width:99.8%"></span></div>
+          <div class="target">목표: 99.9%+ 유지 · 과탐/사탐/국어/영어 동급화</div>
+        </div>
+        <div class="kpi">
+          <div class="label">학습량 계측 커버리지</div>
+          <div class="val">지점 2곳 시범2025 v1.0</div>
+          <div class="bar"><span style="width:40%"></span></div>
+          <div class="target">목표: 전 지점 확산 · 실시간 모니터링</div>
+        </div>
+        <div class="kpi">
+          <div class="label">개인화 추천 정확도</div>
+          <div class="val">85% <span style="font-size:11px;color:#8fa5cf">(베타 테스트)</span></div>
+          <div class="bar"><span style="width:85%"></span></div>
+          <div class="target">목표: 95%+ 달성 · A/B 테스트 완료</div>
+        </div>
+        <div class="kpi">
+          <div class="label">학부모 만족도</div>
+          <div class="val">4.2/5.0 <span style="font-size:11px;color:#8fa5cf">(설문 기반)</span></div>
+          <div class="bar"><span style="width:84%"></span></div>
+          <div class="target">목표: 4.5+ · 정기 피드백 시스템</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <!-- Pillar 1: AI 질문/풀이 -->
+      <article class="pillar">
+        <h3>① AI 질문 · 풀이 <span class="tag">SNarGPT / SNargo</span></h3>
+        <p class="desc">수능 특화 엔진으로 질문을 받아 이해·풀이·설명까지. 인식(초지각) 개선과 과목 확장, 유사문제 출제가 핵심 축입니다.</p>
+
+        <div class="block">
+          <h4>SNarGPT</h4>
+          <span class="role">역할: 질문 접수 · 풀이 · 해설 생성</span>
+          <div class="meta">
+            <span class="pill">현황: 프로토타입 운영</span>
+            <span class="pill">다음 단계: 대화 UX/컨텍스트 지속</span>
+          </div>
+        </div>
+        <div class="block">
+          <h4>SNargo 엔진</h4>
+          <span class="role">역할: 수능 특화 추론/계산 코어</span>
+          <div class="meta">
+            <span class="pill">현황: 수학 1000문항 중 약 2문항 오답</span>
+            <span class="pill">다음 단계: 과탐 → 사탐 → 국어 → 영어 확장</span>
+          </div>
+          
+        </div>
+        <div class="block">
+          <h4>OpenEye (문제 인식 · 초지각)</h4>
+          <span class="role">역할: 문제 인식률 향상 (OCR+Vision)</span>
+          <div class="meta">
+            <span class="pill">현황: 인식 파이프라인 고도화</span>
+            <span class="pill">다음 단계: 도표/그림/수식 인식 강화</span>
+          </div>
+        </div>
+        <div class="connector"></div>
+        <div class="block">
+          <h4>유사문제 출제기</h4>
+          <span class="role">역할: 수능·내신 문제 변형/생성</span>
+          <div class="meta">
+            <span class="pill">현황: 설계 완료</span>
+            <span class="pill">다음 단계: 베타 출시</span>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Pillar 2: 데이터 기반 프로젝트 -->
+      <article class="pillar">
+        <h3>② 데이터 기반 프로젝트 <span class="tag">SNarlink / Analytics</span></h3>
+        <p class="desc">학습량 계측과 시각화, 자동 채점/분석으로 학생의 학습 행동과 성과를 정밀 측정합니다.</p>
+
+        <div class="block">
+          <h4>SNarlink (차단 + 계측)</h4>
+          <span class="role">역할: 인터넷 차단 · 학습량/접속 로그 수집</span>
+          <div class="meta">
+            <span class="pill">현황: 운영 중</span>
+            <span class="pill">다음 단계: 지점 확장 · 안정화</span>
+          </div>
+        </div>
+        <div class="block">
+          <h4>DataViz (Tableau)</h4>
+          <span class="role">역할: 학습 행동 시각화</span>
+          <div class="meta">
+            <span class="pill">현황: 간트차트(시간대별) · 크기맵(주요 사이트)</span>
+            <span class="pill">다음 단계: 성적 분석현황 DATA 시각화</span>
+          </div>
+        </div>
+        <div class="block">
+          <h4>OCR 채점</h4>
+          <span class="role">역할: 모의고사 자동 채점 → 오답률/취향 유형 분석</span>
+          <div class="meta">
+            <span class="pill">현황: 완성 단계</span>
+            <span class="pill">다음 단계: 누적 이력 기반 처방형 리포트</span>
+          </div>
+        </div>
+        <div class="block">
+          <h4>Bifrost</h4>
+          <span class="role">역할: AI 기반 방화벽 탐지/감시</span>
+          <div class="meta">
+            <span class="pill">현황: 개발 중</span>
+            <span class="pill">다음 단계: 실시간 위협 탐지 · 자동 차단</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pillar 3: 2축 사업 모델 -->
+      <article class="pillar">
+        <h3>③ 2축 사업 모델 <span class="tag">SNarVIS × Operations</span></h3>
+        <p class="desc">SNarVIS AI 에이전트와 1,2번 기술을 결합해 <b>학원사업확장</b>과 <b>인터넷 AI 서비스</b> 2축으로 확장합니다.</p>
+
+        <!-- 학원사업확장 축 -->
+        <div style="margin-bottom: 20px;">
+          <h4 style="color: #36d399; font-size: 16px; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;">
+            🏫 학원사업확장
+          </h4>
+          
+          <!-- 지점 현황 -->
+          <div style="margin: 16px 0; background: var(--card); border: 1px solid #26315e; border-radius: 12px; padding: 16px;">
+            <h5 style="margin: 0 0 12px 0; font-size: 14px; color: #cfe0ff;">지점 현황</h5>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(54,211,153,.1), rgba(54,211,153,.05)); border: 1px solid #36d399; border-radius: 12px; min-width: 120px;">
+                <div style="width: 40px; height: 40px; background: #36d399; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏫</div>
+                <div style="font-size: 14px; font-weight: 600; color: #d6ffe9; margin-bottom: 4px;">양평 용문</div>
+                <div style="font-size: 12px; color: #a8b3c7;">본원 운영</div>
+                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;">경기도 양평군 용문면</div>
+              </div>
+              
+              <div style="text-align: center; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid #5ab0ff; border-radius: 12px; min-width: 120px;">
+                <div style="width: 40px; height: 40px; background: #5ab0ff; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏢</div>
+                <div style="font-size: 14px; font-weight: 600; color: #dbe6ff; margin-bottom: 4px;">대치동</div>
+                <div style="font-size: 12px; color: #a8b3c7;">신규 오픈 예정</div>
+                <div style="font-size: 10px; color: #8fa5cf; margin-top: 4px;">서울시 강남구 대치동</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="block">
+            <h4>SN독학기숙학원</h4>
+            <span class="role">역할: 운영 표준 모델 (SNarVIS 실험/적용)</span>
+            <div class="meta">
+              <span class="pill">현황: 양평 용문 본원 운영</span>
+              <span class="pill">다음 단계: 대치동 지점 오픈 → 지속 확장</span>
+            </div>
+          </div>
+          <div class="block">
+            <h4>개입·개선 루프</h4>
+            <span class="role">역할: SNarVIS 기반 학생별 최적 학습 플랜 자동 추천</span>
+            <div class="meta">
+              <span class="pill">현황: 규칙+모델 하이브리드</span>
+              <span class="pill">다음 단계: SNarVIS 통합 · 효과 검증</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 인터넷 AI 서비스 축 -->
+        <div>
+          <h4 style="color: #5ab0ff; font-size: 16px; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;">
+            🌐 인터넷 AI 서비스
+          </h4>
+          <div class="block">
+            <h4>SNarVIS 앱 서비스</h4>
+            <span class="role">역할: 개인 사용자 대상 AI 학습 어시스턴트</span>
+            <div class="meta">
+              <span class="pill">현황: 설계 단계</span>
+              <span class="pill">다음 단계: MVP 개발 · 베타 테스트</span>
+            </div>
+          </div>
+          <div class="block">
+            <h4>B2B SaaS 플랫폼</h4>
+            <span class="role">역할: 타 학원/교육기관 대상 SNarVIS 솔루션 제공</span>
+            <div class="meta">
+              <span class="pill">현황: 기획 단계</span>
+              <span class="pill">다음 단계: 파트너십 구축 · 상용화</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow">
+          <h5>SNarVIS 통합 아키텍처</h5>
+          <div style="font-size: 16px; font-weight: 600; color: #dbe6ff; text-align: center; padding: 16px 0; background: linear-gradient(90deg, rgba(54,211,153,.1), rgba(90,176,255,.1)); border-radius: 8px; border: 1px solid #30407a;">
+            <div style="margin-bottom: 8px;">
+              <span style="color: #dbe6ff;">SNarVIS AI 에이전트</span>
+            </div>
+            <div style="margin: 8px 0; color: #a8b3c7;">↓</div>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px;">
+              <div>
+                <span style="color: #36d399;">🏫 학원사업확장</span>
+                <div style="font-size: 12px; color: #a8b3c7; margin-top: 4px;">SN독학기숙학원</div>
+              </div>
+              <div>
+                <span style="color: #5ab0ff;">🌐 인터넷 AI 서비스</span>
+                <div style="font-size: 12px; color: #a8b3c7; margin-top: 4px;">앱 서비스 · B2B SaaS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer">※ 본 로드맵은 내부 공유용 시각화 초안입니다. 문구·색상·구성은 팀 피드백에 따라 업데이트됩니다.</p>
+  </div>
+</body>
+</html>
