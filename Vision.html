@@ -370,7 +370,7 @@
     color: #6b7280 !important;
   }
 
-  /* 연락처 섹션 */
+  /*   섹션 */
   [data-theme="light"] .footer {
     background: #ffffff !important;
     border: 1px solid #d1d5db !important;
@@ -560,7 +560,7 @@
       <p>AI × 데이터 × 학원을 결합해 <b>개인화 학습 혁신</b>을 구현하고, 측정 가능한 성적 향상을 표준화합니다.</p>
       
       <div style="margin: 20px 0; padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.15), rgba(124,92,255,.15)); border: 1px solid #30407a; border-radius: 12px;" class="snarvis-agent">
-        <h3 style="margin: 0 0 12px 0; font-size: 18px; color: #dbe6ff; text-align: center;">SNarVIS AI 에이전트</h3>
+        <h3 style="margin: 0 0 12px 0; font-size: 18px; color: #dbe6ff; text-align: center;">SNarVIS AI 에이전트(훈수 AI)</h3>
         <p style="margin: 0; color: var(--muted); font-size: 14px; text-align: center;">AI 질문/풀이 + 데이터 분석을 통합한 지능형 학습 어시스턴트</p>
         <div style="margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
           <span class="chip" style="background: #152041;">실시간 학습 진단</span>
@@ -569,38 +569,6 @@
         </div>
       </div>
       
-      <div class="kpis">
-        <div class="chip">정확도 향상 (문항 기준)</div>
-        <div class="chip">학습량/집중도 지표</div>
-        <div class="chip">개인별 최적화 플랜</div>
-        <div class="chip">학부모/학생 신뢰 지표</div>
-      </div>
-      <div class="kpi-grid">
-        <div class="kpi">
-          <div class="label">SNargo 수학 정확도</div>
-          <div class="val">~99.8% <span style="font-size:11px;color:#8fa5cf" class="kpi-subtext">(1000문항 중 약 2문항 오답)</span></div>
-          <div class="bar"><span style="width:99.8%"></span></div>
-          <div class="target">목표: 99.9%+ 유지 · 과탐/사탐/국어/영어 동급화</div>
-        </div>
-        <div class="kpi">
-          <div class="label">학습량 계측 커버리지</div>
-          <div class="val">지점 2곳 시범2025 v1.0</div>
-          <div class="bar"><span style="width:40%"></span></div>
-          <div class="target">목표: 전 지점 확산 · 실시간 모니터링</div>
-        </div>
-        <div class="kpi">
-          <div class="label">개인화 추천 정확도</div>
-          <div class="val">85% <span style="font-size:11px;color:#8fa5cf">(베타 테스트)</span></div>
-          <div class="bar"><span style="width:85%"></span></div>
-          <div class="target">목표: 95%+ 달성 · A/B 테스트 완료</div>
-        </div>
-        <div class="kpi">
-          <div class="label">학부모 만족도</div>
-          <div class="val">4.2/5.0 <span style="font-size:11px;color:#8fa5cf">(설문 기반)</span></div>
-          <div class="bar"><span style="width:84%"></span></div>
-          <div class="target">목표: 4.5+ · 정기 피드백 시스템</div>
-        </div>
-      </div>
     </section>
 
     <section class="grid">
@@ -641,6 +609,24 @@
           <div class="meta">
             <span class="pill">현황: 설계 완료</span>
             <span class="pill">다음 단계: 베타 출시</span>
+          </div>
+        </div>
+        
+        <div class="block" onclick="openModal('frontend-dev')">
+          <h4>프론트엔드 개발</h4>
+          <span class="role">역할: 사용자 인터페이스 · 웹/앱 개발</span>
+          <div class="meta">
+            <span class="pill">현황: SNarVIS 앱 UI/UX 개발</span>
+            <span class="pill">다음 단계: 반응형 웹 · 모바일 최적화</span>
+          </div>
+        </div>
+        
+        <div class="block" onclick="openModal('backend-dev')">
+          <h4>백엔드 개발</h4>
+          <span class="role">역할: 서버 · API · 데이터베이스 관리</span>
+          <div class="meta">
+            <span class="pill">현황: API 성능 최적화 진행</span>
+            <span class="pill">다음 단계: 확장성 개선 · 보안 강화</span>
           </div>
         </div>
 
@@ -788,10 +774,9 @@
     </section>
 
     <footer class="footer">
-      <h3>연락처</h3>
+
       <p>SN Academy — Vision Roadmap</p>
-      <p class="contact-info">📧 contact@snacademy.com | 📱 031-123-4567</p>
-      <p class="contact-info">🕒 24시간 운영</p>
+
       <p style="margin-top: 16px; font-size: 12px; color: var(--muted);">※ 본 로드맵은 내부 공유용 시각화 초안입니다. 문구·색상·구성은 팀 피드백에 따라 업데이트됩니다.</p>
     </footer>
   </div>
@@ -1090,6 +1075,124 @@
             </ul>
           </div>
         `
+      },
+      'frontend-dev': {
+        title: '프론트엔드 개발',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">프론트엔드 개발 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">완성된 페이지</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">12개</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">반응형 지원</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">85%</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">사용자 만족도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">4.3/5.0</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">UI/UX 개발 및 최적화 (70% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-active">진행중</span> SNarVIS 앱 UI/UX 개선</li>
+              <li><span class="status-badge status-active">진행중</span> 반응형 웹 디자인 적용</li>
+              <li><span class="status-badge status-planning">계획중</span> 모바일 앱 최적화</li>
+              <li><span class="status-badge status-planning">계획중</span> 접근성 개선 (WCAG 2.1 준수)</li>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🛠️ 기술 스택</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;">
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">프레임워크</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">React</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">스타일링</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">CSS3</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">상태관리</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">Redux</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">빌드도구</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">Webpack</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      'backend-dev': {
+        title: '백엔드 개발',
+        content: `
+          <h2 style="margin: 0 0 20px 0; color: var(--accent);">백엔드 개발 프로젝트</h2>
+          <div class="detail-section">
+            <h3>📊 현재 진행상황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">API 엔드포인트</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">45개</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">응답 시간</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-2);">120ms</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">가용성</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">99.9%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">API 최적화 및 확장성 개선 (80% 완료)</div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🎯 주요 업무</h3>
+            <ul>
+              <li><span class="status-badge status-active">진행중</span> API 성능 최적화</li>
+              <li><span class="status-badge status-active">진행중</span> 데이터베이스 스키마 설계</li>
+              <li><span class="status-badge status-planning">계획중</span> 마이크로서비스 아키텍처 도입</li>
+              <li><span class="status-badge status-planning">계획중</span> 보안 강화 및 인증 시스템</li>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>🛠️ 기술 스택</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;">
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">언어</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">Python</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">프레임워크</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">FastAPI</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">데이터베이스</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">PostgreSQL</div>
+              </div>
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">캐시</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--ink);">Redis</div>
+              </div>
+            </div>
+          </div>
+        `
       }
     };
 
@@ -1203,17 +1306,9 @@
           
           <div class="detail-section">
             <h3>📍 주소 정보</h3>
-            <div style="padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid #30407a; border-radius: 12px; margin: 12px 0;">
+            <div style="padding: 16px; background: linear-gradient(135deg, rgba(90,176,255,.1), rgba(90,176,255,.05)); border: 1px solid var(--line); border-radius: 12px; margin: 12px 0;">
               <div style="font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">${location.address}</div>
               <div style="font-size: 14px; color: var(--muted);">${location.status}</div>
-            </div>
-          </div>
-
-          <div class="detail-section">
-            <h3>📞 연락처 정보</h3>
-            <div style="padding: 16px; background: linear-gradient(135deg, rgba(54,211,153,.1), rgba(54,211,153,.05)); border: 1px solid #30407a; border-radius: 12px; margin: 12px 0;">
-              <div style="font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">📱 ${location.phone}</div>
-              <div style="font-size: 14px; color: var(--muted);">🕒 ${location.hours}</div>
             </div>
           </div>
 
@@ -1232,11 +1327,11 @@
           <div class="detail-section">
             <h3>📞 연락처</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-              <div style="padding: 12px; background: #0f1630; border: 1px solid #2a3566; border-radius: 8px;">
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px;">
                 <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">전화번호</div>
                 <div style="font-size: 16px; font-weight: 600; color: var(--ink);">${locationId === 'yangpyeong' ? '031-123-4567' : '02-1234-5678'}</div>
               </div>
-              <div style="padding: 12px; background: #0f1630; border: 1px solid #2a3566; border-radius: 8px;">
+              <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px;">
                 <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">운영시간</div>
                 <div style="font-size: 16px; font-weight: 600; color: var(--ink);">24시간 운영</div>
               </div>
@@ -1246,13 +1341,38 @@
           <div class="detail-section">
             <h3>ℹ️ 지점 정보</h3>
             <ul>
-              <li>${locationId === 'yangpyeong' ? '본원: 2020년 개원, 4년 운영 경험' : '신규 지점: 2025년 오픈 예정'}</li>
-              <li>${locationId === 'yangpyeong' ? '수용 인원: 200명 (기숙사 포함)' : '수용 인원: 150명 (기숙사 포함)'}</li>
-              <li>${locationId === 'yangpyeong' ? '주차 가능: 50대' : '주차 가능: 30대'}</li>
-              <li>SNarVIS AI 시스템 완전 적용</li>
+              <li>${locationId === 'yangpyeong' ? '본원: 2020년 개원, 4년 운영 경험' : '신규 지점: 2026년 오픈 예정'}</li>
+              <li>${locationId === 'yangpyeong' ? '수용 인원: 200명 (기숙사 포함)' : '수용 인원: 100명'}</li>
+              <li>${locationId === 'yangpyeong' ? '주차 가능: 50대' : '주차 가능: 2대'}</li>
+              <li>${locationId === 'yangpyeong' ? 'SNarVIS AI 시스템 완전 적용' : 'SNarlink, SNarGPT AI 시스템 완전 적용'}</li>
               <li>24시간 학습 관리 시스템</li>
             </ul>
           </div>
+
+          ${locationId === 'daechi' ? `
+          <div class="detail-section">
+            <h3>📋 진행상황</h3>
+            <div style="padding: 16px; background: linear-gradient(135deg, rgba(124,92,255,.1), rgba(124,92,255,.05)); border: 1px solid var(--line); border-radius: 12px; margin: 12px 0;">
+              <div style="font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 12px;">📅 25.10.10 일 계약 예정</div>
+              <div style="font-size: 14px; color: var(--muted); line-height: 1.6;">
+                <div style="margin-bottom: 8px;">• 계약금: 7천만원</div>
+                <div style="margin-bottom: 8px;">• 보증금: 3.5억원</div>
+                <div style="margin-bottom: 12px;">• 월 임대료: 2,200만원 (부가세 별도)</div>
+                <div style="padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-top: 12px;">
+                  <div style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">📝 상세 정보</div>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="https://foam-mochi-6fb.notion.site/2618205a96df80058899d480d21899ba" target="_blank" style="display: inline-block; padding: 8px 16px; background: linear-gradient(135deg, #7c5cff, #5ab0ff); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: all 0.3s ease;">
+                      📊 전체 진행현황 노션
+                    </a>
+                    <a href="https://foam-mochi-6fb.notion.site/2658205a96df804aae8bc0caf4519bd6" target="_blank" style="display: inline-block; padding: 8px 16px; background: linear-gradient(135deg, #36d399, #10b981); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: all 0.3s ease;">
+                      🎨 디자인 계획 노션
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          ` : ''}
           
           <div class="comment-section">
             <h3>💬 댓글</h3>
