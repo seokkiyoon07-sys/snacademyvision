@@ -567,6 +567,108 @@
     color: #000000;
   }
 
+  /* 과목 카드 호버 효과 */
+  .subject-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  [data-theme="light"] .subject-card:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  }
+
+  /* 과목 모달 스타일 */
+  .subject-modal {
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+  }
+  .subject-modal-content {
+    background: var(--card);
+    margin: 5% auto;
+    padding: 24px;
+    border: 1px solid #26315e;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  [data-theme="light"] .subject-modal-content {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+  }
+
+  /* 문제 목록 스타일 */
+  .problem-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--bg);
+  }
+  [data-theme="light"] .problem-list {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .problem-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  [data-theme="light"] .problem-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+  .problem-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .problem-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .problem-id {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: monospace;
+  }
+  .problem-date {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .problem-content {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .problem-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .problem-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: var(--chip);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--muted);
+  }
+
 </style>
 </head>
 <body data-theme="dark">
@@ -835,6 +937,14 @@
     <div class="modal-content">
       <span class="close" onclick="closeLocationModal()">&times;</span>
       <div id="location-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 과목별 문제 모달 -->
+  <div id="subjectModal" class="subject-modal">
+    <div class="subject-modal-content">
+      <span class="close" onclick="closeSubjectModal()">&times;</span>
+      <div id="subject-modal-body"></div>
     </div>
   </div>
 
@@ -1248,6 +1358,106 @@
               <li>분류 정확도: 98%+ (자동 분류 시스템)</li>
             </ul>
           </div>
+          
+          <div class="detail-section">
+            <h3>📝 문제입력 진행현황</h3>
+            <div style="margin-bottom: 16px; text-align: center;">
+              <a href="https://docs.google.com/spreadsheets/d/1gsM8vlZ5GP-ERdk5kfNHyu5UUwDv6S-jDhDnhMz7hTs/edit?gid=0#gid=0" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(78, 205, 196, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(78, 205, 196, 0.3)'">
+                📊 라벨 바로가기 (Google Sheets)
+              </a>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0;">
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="openSubjectModal('korean')" class="subject-card">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ff6b6b, #ee5a52); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">📚</div>
+                  <div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--ink);">국어</div>
+                    <div style="font-size: 12px; color: var(--muted);">Korean</div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 12px; color: var(--muted);">입력된 문제</span>
+                  <span style="font-size: 18px; font-weight: 700; color: var(--accent);" id="korean-count">0문항</span>
+                </div>
+                <div class="progress-bar" style="height: 6px;">
+                  <div class="progress-fill" style="width: 0%;" id="korean-progress"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">목표: 20,000문항</div>
+              </div>
+              
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="openSubjectModal('math')" class="subject-card">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #4ecdc4, #44a08d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">🔢</div>
+                  <div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--ink);">수학</div>
+                    <div style="font-size: 12px; color: var(--muted);">Mathematics</div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 12px; color: var(--muted);">입력된 문제</span>
+                  <span style="font-size: 18px; font-weight: 700; color: var(--accent);" id="math-count">0문항</span>
+                </div>
+                <div class="progress-bar" style="height: 6px;">
+                  <div class="progress-fill" style="width: 0%;" id="math-progress"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">목표: 25,000문항</div>
+              </div>
+              
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="openSubjectModal('english')" class="subject-card">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #a8e6cf, #7fcdcd); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">🌍</div>
+                  <div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--ink);">영어</div>
+                    <div style="font-size: 12px; color: var(--muted);">English</div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 12px; color: var(--muted);">입력된 문제</span>
+                  <span style="font-size: 18px; font-weight: 700; color: var(--accent);" id="english-count">0문항</span>
+                </div>
+                <div class="progress-bar" style="height: 6px;">
+                  <div class="progress-fill" style="width: 0%;" id="english-progress"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">목표: 20,000문항</div>
+              </div>
+              
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="openSubjectModal('science')" class="subject-card">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ffd93d, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">🔬</div>
+                  <div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--ink);">과학탐구</div>
+                    <div style="font-size: 12px; color: var(--muted);">Science</div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 12px; color: var(--muted);">입력된 문제</span>
+                  <span style="font-size: 18px; font-weight: 700; color: var(--accent);" id="science-count">0문항</span>
+                </div>
+                <div class="progress-bar" style="height: 6px;">
+                  <div class="progress-fill" style="width: 0%;" id="science-progress"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">목표: 20,000문항</div>
+              </div>
+              
+              <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="openSubjectModal('social')" class="subject-card">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏛️</div>
+                  <div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--ink);">사회탐구</div>
+                    <div style="font-size: 12px; color: var(--muted);">Social Studies</div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 12px; color: var(--muted);">입력된 문제</span>
+                  <span style="font-size: 18px; font-weight: 700; color: var(--accent);" id="social-count">0문항</span>
+                </div>
+                <div class="progress-bar" style="height: 6px;">
+                  <div class="progress-fill" style="width: 0%;" id="social-progress"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">목표: 15,000문항</div>
+              </div>
+            </div>
+          </div>
         `
       },
       'frontend-dev': {
@@ -1508,6 +1718,7 @@
       if (event.key === 'Escape') {
         closeModal();
         closeLocationModal();
+        closeSubjectModal();
       }
     });
 
@@ -1666,16 +1877,20 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 지점 모달 외부 클릭시 닫기
+    // 모달 외부 클릭시 닫기
     window.onclick = function(event) {
       const modal = document.getElementById('modal');
       const locationModal = document.getElementById('locationModal');
+      const subjectModal = document.getElementById('subjectModal');
       const commentModal = document.getElementById('commentModal');
       if (event.target == modal) {
         closeModal();
       }
       if (event.target == locationModal) {
         closeLocationModal();
+      }
+      if (event.target == subjectModal) {
+        closeSubjectModal();
       }
       if (event.target == commentModal) {
         closeCommentModal();
@@ -1783,6 +1998,257 @@
         </div>
       `).join('');
     }
+
+    // 과목별 문제 데이터
+    const subjectData = {
+      'korean': {
+        name: '국어',
+        nameEn: 'Korean',
+        icon: '📚',
+        color: '#ff6b6b',
+        target: 20000,
+        problems: [
+          {
+            id: 'KOR_2025_001',
+            content: '다음 중 문장의 주어와 서술어가 올바르게 연결된 것은?',
+            date: '2025-01-15',
+            tags: ['문법', '주어서술어', '기초'],
+            source: '2024년 6월 평가원 모의고사'
+          },
+          {
+            id: 'KOR_2025_002', 
+            content: '다음 시에서 사용된 수사법을 분석하시오.',
+            date: '2025-01-14',
+            tags: ['수사법', '시', '분석'],
+            source: '2024년 9월 교육청 모의고사'
+          }
+        ]
+      },
+      'math': {
+        name: '수학',
+        nameEn: 'Mathematics',
+        icon: '🔢',
+        color: '#4ecdc4',
+        target: 25000,
+        problems: [
+          {
+            id: 'MATH_2025_001',
+            content: '함수 f(x) = x² - 4x + 3의 최솟값을 구하시오.',
+            date: '2025-01-15',
+            tags: ['이차함수', '최솟값', '기초'],
+            source: '2024년 6월 평가원 모의고사'
+          },
+          {
+            id: 'MATH_2025_002',
+            content: '다음 방정식의 해를 구하시오: 2x + 3 = 7',
+            date: '2025-01-14',
+            tags: ['일차방정식', '해', '기초'],
+            source: '2024년 9월 교육청 모의고사'
+          }
+        ]
+      },
+      'english': {
+        name: '영어',
+        nameEn: 'English',
+        icon: '🌍',
+        color: '#a8e6cf',
+        target: 20000,
+        problems: [
+          {
+            id: 'ENG_2025_001',
+            content: '다음 빈칸에 들어갈 가장 적절한 단어는?',
+            date: '2025-01-15',
+            tags: ['어휘', '빈칸추론', '기초'],
+            source: '2024년 6월 평가원 모의고사'
+          }
+        ]
+      },
+      'science': {
+        name: '과학탐구',
+        nameEn: 'Science',
+        icon: '🔬',
+        color: '#ffd93d',
+        target: 20000,
+        problems: [
+          {
+            id: 'SCI_2025_001',
+            content: '다음 중 화학 반응에서 보존되는 것은?',
+            date: '2025-01-15',
+            tags: ['화학', '보존법칙', '기초'],
+            source: '2024년 6월 평가원 모의고사'
+          }
+        ]
+      },
+      'social': {
+        name: '사회탐구',
+        nameEn: 'Social Studies',
+        icon: '🏛️',
+        color: '#667eea',
+        target: 15000,
+        problems: [
+          {
+            id: 'SOC_2025_001',
+            content: '다음 중 한국사의 삼국시대에 해당하는 것은?',
+            date: '2025-01-15',
+            tags: ['한국사', '삼국시대', '기초'],
+            source: '2024년 6월 평가원 모의고사'
+          }
+        ]
+      }
+    };
+
+    // 과목별 모달 열기
+    function openSubjectModal(subjectId) {
+      const modal = document.getElementById('subjectModal');
+      const modalBody = document.getElementById('subject-modal-body');
+      
+      if (subjectData[subjectId]) {
+        const subject = subjectData[subjectId];
+        const progress = (subject.problems.length / subject.target) * 100;
+        
+        modalBody.innerHTML = `
+          <h2 style="margin: 0 0 20px 0; color: ${subject.color}; display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 24px;">${subject.icon}</span>
+            ${subject.name} (${subject.nameEn})
+          </h2>
+          
+          <div class="detail-section">
+            <h3>📊 진행 현황</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">입력된 문제</div>
+                <div style="font-size: 24px; font-weight: 800; color: ${subject.color};">${subject.problems.length}문항</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">목표 문제</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent);">${subject.target.toLocaleString()}문항</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">완성도</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-3);">${progress.toFixed(1)}%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${Math.min(progress, 100)}%; background: ${subject.color};"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 8px;">
+              ${subject.problems.length} / ${subject.target.toLocaleString()} 문항 입력 완료
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>📝 입력된 문제 목록</h3>
+            <div class="problem-list">
+              ${subject.problems.length === 0 ? 
+                '<p style="color: var(--muted); text-align: center; padding: 40px;">아직 입력된 문제가 없습니다.</p>' :
+                subject.problems.map(problem => `
+                  <div class="problem-item">
+                    <div class="problem-meta">
+                      <span class="problem-id">${problem.id}</span>
+                      <span class="problem-date">${problem.date}</span>
+                    </div>
+                    <div class="problem-content">${problem.content}</div>
+                    <div style="margin-bottom: 8px; font-size: 12px; color: var(--muted);">
+                      출처: ${problem.source}
+                    </div>
+                    <div class="problem-tags">
+                      ${problem.tags.map(tag => `<span class="problem-tag">${tag}</span>`).join('')}
+                    </div>
+                  </div>
+                `).join('')
+              }
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3>➕ 새 문제 추가</h3>
+            <div style="padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin: 12px 0;">
+              <div style="font-size: 14px; color: var(--muted); margin-bottom: 12px;">
+                새 문제를 추가하려면 아래 버튼을 클릭하세요.
+              </div>
+              <button onclick="addNewProblem('${subjectId}')" style="background: ${subject.color}; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">
+                + 새 문제 추가
+              </button>
+            </div>
+          </div>
+        `;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // 과목별 모달 닫기
+    function closeSubjectModal() {
+      const modal = document.getElementById('subjectModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // 새 문제 추가
+    function addNewProblem(subjectId) {
+      const problemContent = prompt('문제 내용을 입력하세요:');
+      if (!problemContent) return;
+      
+      const source = prompt('출처를 입력하세요 (예: 2024년 6월 평가원 모의고사):');
+      if (!source) return;
+      
+      const tags = prompt('태그를 입력하세요 (쉼표로 구분):');
+      const tagList = tags ? tags.split(',').map(tag => tag.trim()) : ['기타'];
+      
+      const newProblem = {
+        id: `${subjectId.toUpperCase()}_${Date.now()}`,
+        content: problemContent,
+        date: new Date().toISOString().split('T')[0],
+        tags: tagList,
+        source: source
+      };
+      
+      subjectData[subjectId].problems.push(newProblem);
+      
+      // 로컬 스토리지에 저장
+      localStorage.setItem('subjectData', JSON.stringify(subjectData));
+      
+      // 모달 새로고침
+      openSubjectModal(subjectId);
+      
+      // 진행률 업데이트
+      updateSubjectProgress();
+      
+      alert('새 문제가 추가되었습니다!');
+    }
+
+    // 과목 카드 진행률 업데이트
+    function updateSubjectProgress() {
+      Object.keys(subjectData).forEach(subjectId => {
+        const subject = subjectData[subjectId];
+        const countElement = document.getElementById(`${subjectId}-count`);
+        const progressElement = document.getElementById(`${subjectId}-progress`);
+        
+        if (countElement && progressElement) {
+          const progress = (subject.problems.length / subject.target) * 100;
+          countElement.textContent = `${subject.problems.length}문항`;
+          progressElement.style.width = `${Math.min(progress, 100)}%`;
+        }
+      });
+    }
+
+    // 페이지 로드시 저장된 데이터 불러오기
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedSubjectData = localStorage.getItem('subjectData');
+      if (savedSubjectData) {
+        const parsed = JSON.parse(savedSubjectData);
+        Object.assign(subjectData, parsed);
+      }
+      
+      // 문제은행 모달이 열릴 때 진행률 업데이트
+      const originalOpenModal = window.openModal;
+      window.openModal = function(projectId) {
+        originalOpenModal(projectId);
+        if (projectId === 'question-bank') {
+          setTimeout(updateSubjectProgress, 100);
+        }
+      };
+    });
   </script>
 </body>
 </html>
